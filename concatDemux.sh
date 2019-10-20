@@ -6,7 +6,8 @@ FINALOUTPUT="FinalOutput.mp4"
 > mp4ToConcat.txt;
 for f in ./*.MP4; do echo "file '$f'" >> $INPUTFILE; done
 #ffmpeg -f concat -safe 0  -i $INPUTFILE -c copy $OUTPUTFILE
-#se https://superuser.com/questions/1296374/best-settings-for-ffmpeg-with-nvenc
+#see https://superuser.com/questions/1296374/best-settings-for-ffmpeg-with-nvenc
+# and https://superuser.com/questions/1236275/how-can-i-use-crf-encoding-with-nvenc-in-ffmpeg/1236387
 #-aspect 16:9 -s 1920x1080 http://ffmpeg.org/ffmpeg-filters.html#scale
 #audio "-c:a aac -b:a 128k -ac 2"
 # disable audio -an 
