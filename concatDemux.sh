@@ -12,7 +12,7 @@ for f in ./*.MP4; do echo "file '$f'" >> $INPUTFILE; done
 if test -f $OUTPUTFILE; then
 	echo "$OUTPUTFILE also exists"
 fi
-echo "Do you want to use this file [1], overwrite[2] or Exit[3]"
+echo "Do you want to use this file[1], overwrite[2] or Exit[3]"
 select yne in "Yes" "No" "Exit"; do
 	case $yne in
 	Yes ) echo "Using current file"; break;;
