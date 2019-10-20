@@ -6,7 +6,7 @@ OUTPUTFILE="ConcatOutput.mp4"
 FINALOUTPUT="FinalOutput.mp4"
 
 #emtpy file
-> mp4ToConcat.txt;
+> $INPUTFILE;
 for f in ./*.MP4; do echo "file '$f'" >> $INPUTFILE; done
 
 if test -f $OUTPUTFILE; then
