@@ -1,4 +1,4 @@
-#Not a usbale script, currently a list of commands to manage vmware workstation and LVM running side by side.
+#This is anot a script, currently a list of commands to manage vmware workstation and LVM running side by side.
 
 # to disable
 sudo /etc/init.d/vmware stop
@@ -7,6 +7,9 @@ sudo /etc/init.d/vmware start
 
 
 #kvm
+
+#Note, modules loaded at runtime via /etc/modules
+vi /etc/modules
 
 # LIST kernel modules
 # /sbin/lsmod displays a list of currently loaded modules. 
@@ -19,6 +22,13 @@ sudo /sbin/lsmod | grep kvm
 sudo rmmod kvm_amd
 sudo rmmod kvm
 
+#or
+
+#https://linux.die.net/man/8/modprobe
+# program to add and remove modules from the Linux Kernel
+sudo modprobe -r kvm
+sudo modprobe -r kvm_amd
+
 
 # https://linux.die.net/man/8/insmod
 # insmod - simple program to insert a module into the Linux Kernel
@@ -26,3 +36,8 @@ sudo rmmod kvm
 # note fedora 31 = kvm.ko.xz, kvm-amd.ko.xz - xz is compressed but still valid
 sudo insmod /lib/modules/`uname -r`/kernel/arch/x86/kvm/kvm.ko
 sudo insmod /lib/modules/`uname -r`/kernel/arch/x86/kvm/kvm-intel.ko
+
+#start/stop KVM daemon
+sudo systemctl stop libvirtd
+sudo systemctl start libvirtd
+
