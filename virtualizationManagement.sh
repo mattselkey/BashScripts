@@ -26,16 +26,17 @@ sudo rmmod kvm
 
 #https://linux.die.net/man/8/modprobe
 # program to add and remove modules from the Linux Kernel
-sudo modprobe -r kvm
 sudo modprobe -r kvm_amd
+sudo modprobe -r kvm
+
 
 
 # https://linux.die.net/man/8/insmod
 # insmod - simple program to insert a module into the Linux Kernel
 # to enable - exmaple /lib/modules/5.5.17-200.fc31.x86_64/kernel/arch/x86
 # note fedora 31 = kvm.ko.xz, kvm-amd.ko.xz - xz is compressed but still valid
-sudo insmod /lib/modules/`uname -r`/kernel/arch/x86/kvm/kvm.ko
-sudo insmod /lib/modules/`uname -r`/kernel/arch/x86/kvm/kvm-intel.ko
+sudo insmod /lib/modules/`uname -r`/kernel/arch/x86/kvm/kvm.ko.xz
+sudo insmod /lib/modules/`uname -r`/kernel/arch/x86/kvm/kvm-amd.ko.xz
 
 #start/stop KVM daemon
 sudo systemctl stop libvirtd
